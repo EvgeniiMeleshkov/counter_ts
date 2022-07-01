@@ -1,22 +1,24 @@
 .superInput {
+    margin-top: 1rem;
     font-weight: bold;
     outline: none;
     color: #6aa2fa;
     font-size: x-large;
-    height: 50px;
-    width: 50px;
+    height: 30%;
+    width: 15%;
     background-color: #282c34;
     margin-left: 2rem;
     border-radius: 15px;
 }
 
 .errorInput {
+    margin-top: 1rem;
     font-weight: bold;
     outline: none;
     color: crimson;
     font-size: x-large;
-    height: 50px;
-    width: 50px;
+    height: 30%;
+    width: 15%;
     background-color: rgba(243,0,6,0.35);
     margin-left: 2rem;
     border-radius: 15px;
