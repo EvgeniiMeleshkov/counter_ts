@@ -5,10 +5,11 @@ import {MyCounter} from './MyCounter/MyCounter';
 function App() {
     const min = Number(localStorage.getItem('min'))
     const max = Number(localStorage.getItem('max'))
+    const current = Number(localStorage.getItem('current'))
 
     const [minValue, setMinValue] = useState(min)
     const [maxValue, setMaxValue] = useState(max)
-    const [value, setValue] = useState(minValue)
+    const [value, setValue] = useState(current)
     let disableReset = true
     let disableIncr = false
     let error = ''
@@ -16,7 +17,8 @@ function App() {
     useEffect(()=>{
         localStorage.setItem('min', JSON.stringify(minValue))
         localStorage.setItem('max', JSON.stringify(maxValue))
-    },[minValue, maxValue])
+        localStorage.setItem('current', JSON.stringify(value))
+    },[minValue, maxValue, value])
 
     if(minValue >= maxValue || value % 1 !== 0 || value < 0){
         disableIncr = true

@@ -26,14 +26,9 @@
     border: #6aa2fa solid 2px;
 }
 .inputMinMax {
-    color: #6aa2fa;
-    font-size: x-large;
-    height: 50px;
-    width: 50px;
-    background-color: #282c34;
-    margin-left: 2rem;
-    border-radius: 15px;
+
 }
+
 .settings {
     display: flex;
     flex-direction: column;

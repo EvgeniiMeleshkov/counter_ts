@@ -37,6 +37,11 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
     const maxCallBack = (e: ChangeEvent<HTMLInputElement>) => {
         settingMAXimalValueCallBack(Number(e.currentTarget.value))
     }
+    const gotItOnClickHandler = () => {
+        settingMINimalValueCallBack(minValue)
+        settingMAXimalValueCallBack(maxValue)
+        setEdit(false)
+    }
     return (
         <div>
             <div className="App-header">
@@ -46,13 +51,13 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                         {edit
                             ? <div className={s.settings}>
                                 <div className={s.minMaxSettings}>
-                                    <p>Set Min: </p><Input error={error} value={minValue} onChange={minCallBack}
-                                                           className={s.inputMinMax}
+                                    <p>Set Min: </p><Input error={error} value={minValue}
+                                                           onChange={minCallBack}
                                                            type="number"/>
                                 </div>
                                 <div className={s.minMaxSettings}>
-                                    <p>Set Max: </p><Input error={error} value={maxValue} onChange={maxCallBack}
-                                                           className={s.inputMinMax}
+                                    <p>Set Max: </p><Input error={error} value={maxValue}
+                                                           onChange={maxCallBack}
                                                            type="number"/>
                                 </div>
                             </div>
@@ -62,7 +67,7 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
 
                     <div className={s.buttonsDiv}>
                         {edit
-                            ? <Button onClick={() => setEdit(false)}>Got it!</Button>
+                            ? <Button onClick={gotItOnClickHandler}>Got it!</Button>
                             :<div>
                                 <Button onClick={callBackIncr} disabled={disableIncr}>Inc</Button>
 
