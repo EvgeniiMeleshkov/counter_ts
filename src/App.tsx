@@ -59,16 +59,6 @@ function App() {
         setMaxValue(maxValue)
         setValue(minValue)
     }
-    // useEffect(()=>{
-    //     localStorage.setItem('min', JSON.stringify(minValue));
-    //     localStorage.setItem('max', JSON.stringify(maxValue));
-    // }, [minValue, maxValue])
-    // useEffect(()=>{
-    //     const min = localStorage.getItem('min')
-    //     const max = localStorage.getItem('max')
-    //     min && setMinValue(JSON.parse(min))
-    //     max && setMaxValue(JSON.parse(max))
-    // })
 
     return (
         <div className="App">
