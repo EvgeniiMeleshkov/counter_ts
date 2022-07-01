@@ -1,5 +1,4 @@
 .superInput {
-    font-size: 20px;
     font-weight: bold;
     outline: none;
     color: #6aa2fa;
@@ -12,7 +11,6 @@
 }
 
 .errorInput {
-    font-size: 20px;
     font-weight: bold;
     outline: none;
     color: crimson;

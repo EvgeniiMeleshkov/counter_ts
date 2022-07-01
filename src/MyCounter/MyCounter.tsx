@@ -51,13 +51,13 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                         {edit
                             ? <div className={s.settings}>
                                 <div className={s.minMaxSettings}>
-                                    <p>Set Min: </p><Input error={error} value={minValue}
-                                                           onChange={minCallBack}
+                                    <p>Set Max: </p><Input error={error} value={maxValue}
+                                                           onChange={maxCallBack}
                                                            type="number"/>
                                 </div>
                                 <div className={s.minMaxSettings}>
-                                    <p>Set Max: </p><Input error={error} value={maxValue}
-                                                           onChange={maxCallBack}
+                                    <p>Set Min: </p><Input error={error} value={minValue}
+                                                           onChange={minCallBack}
                                                            type="number"/>
                                 </div>
                             </div>

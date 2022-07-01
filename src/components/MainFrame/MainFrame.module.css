@@ -9,6 +9,7 @@
     grid-template-columns: repeat(1, 2fr);
 }
 .labelDiv {
+    font-size: xxx-large;
     height: 150px;
     min-width: border-box;
     flex-direction: row;
@@ -25,9 +26,6 @@
     border-radius: 10px;
     border: #6aa2fa solid 2px;
 }
-.inputMinMax {
-
-}
 
 .settings {
     display: flex;
@@ -35,7 +33,7 @@
 
 }
 .minMaxSettings {
-    margin: 0.5rem;
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
