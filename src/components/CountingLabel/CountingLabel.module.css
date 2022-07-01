@@ -1,14 +1,17 @@
 .label{
+    margin-top: 1rem;
     color: #6aa2fa;
     font-weight: bold;
-    font-size: xxx-large;
+    font-size: 80px;
 }
 .limit{
+    margin-top: 1rem;
     color: crimson;
     font-weight: bold;
-    font-size: xxx-large;
+    font-size: 90px;
 }
 .error{
+    margin-top: 1.5rem;
     color: crimson;
-    font-size: 20px;
+    font-size: 40px;
 }

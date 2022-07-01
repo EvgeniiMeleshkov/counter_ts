@@ -61,7 +61,9 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                                                            type="number"/>
                                 </div>
                             </div>
-                            : <CountingLabel error={error} maxValue={maxValue} value={value}/>
+                            : <div>
+                                <CountingLabel error={error} maxValue={maxValue} value={value}/>
+                            </div>
                         }
                     </div>
 

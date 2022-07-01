@@ -9,7 +9,6 @@ type CountingLabelPropsType = {
 }
 
 const CountingLabel = ({value, error, maxValue}: CountingLabelPropsType) => {
-    //console.log('CountingLabel rendered')
     return (
         <div>
             { error === ''
