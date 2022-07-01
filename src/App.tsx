@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import MainFrame from './components/MainFrame/MainFrame';
+import {MyCounter} from './MyCounter/MyCounter';
 
 function App() {
     const min = Number(localStorage.getItem('min'))
@@ -70,17 +70,27 @@ function App() {
 
     return (
         <div className="App">
-            <MainFrame
-                error={error}
-                minValue={minValue}
-                maxValue={maxValue}
-                settingMINimalValueCallBack={settingMINimalValueCallBack}
-                settingMAXimalValueCallBack={settingMAXimalValueCallBack}
-                activateReset={onReset}
-                callBackIncr={onIncrementClick}
-                disableReset={disableReset}
-                disableIncr={disableIncr}
-                value={value}/>
+            <MyCounter activateReset={onReset}
+                       callBackIncr={onIncrementClick}
+                       value={value}
+                       disableIncr={disableIncr}
+                       disableReset={disableReset}
+                       settingMAXimalValueCallBack={settingMAXimalValueCallBack}
+                       settingMINimalValueCallBack={settingMINimalValueCallBack}
+                       maxValue={maxValue}
+                       minValue={minValue}
+                       error={error}/>
+            {/*<MainFrame*/}
+            {/*    error={error}*/}
+            {/*    minValue={minValue}*/}
+            {/*    maxValue={maxValue}*/}
+            {/*    settingMINimalValueCallBack={settingMINimalValueCallBack}*/}
+            {/*    settingMAXimalValueCallBack={settingMAXimalValueCallBack}*/}
+            {/*    activateReset={onReset}*/}
+            {/*    callBackIncr={onIncrementClick}*/}
+            {/*    disableReset={disableReset}*/}
+            {/*    disableIncr={disableIncr}*/}
+            {/*    value={value}/>*/}
         </div>
     );
 }
