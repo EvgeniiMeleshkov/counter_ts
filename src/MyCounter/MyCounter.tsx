@@ -29,7 +29,7 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                                                             error
                                                         }) => {
 
-    const [edit, setEdit] = useState(false)
+    const [edit, setEdit] = useState(true)
 
     const minCallBack = (e: ChangeEvent<HTMLInputElement>) => {
         settingMINimalValueCallBack(Number(e.currentTarget.value))
