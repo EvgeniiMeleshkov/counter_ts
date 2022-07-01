@@ -1,0 +1,31 @@
+.main {
+    align-content: space-between;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: #6aa2fa solid 2px;
+    opacity: 90%;
+    border-radius: 10px;
+    grid-template-columns: repeat(1, 2fr);
+}
+.labelDiv {
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
+    margin:  5px 5px 0 5px;
+    border: #6aa2fa solid 2px;
+}
+.buttonsDiv {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 8px 5px 10px 5px;
+    border-radius: 10px;
+    border: #6aa2fa solid 2px;
+}
+.inputMinMax {
+    color: #6aa2fa;
+    font-size: x-large;
+    width: 40px;
+    background-color: #282c34;
+}

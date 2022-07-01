@@ -1,0 +1,14 @@
+.label{
+    color: #6aa2fa;
+    font-weight: bold;
+    font-size: xxx-large;
+}
+.limit{
+    color: crimson;
+    font-weight: bold;
+    font-size: xxx-large;
+}
+.error{
+    color: crimson;
+    font-size: 20px;
+}
