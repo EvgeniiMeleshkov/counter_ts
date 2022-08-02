@@ -4,11 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import {store} from './Redux/store';
+import {loadState, saveState} from './localStorage';
+import {createStore} from 'redux';
+import {rootReducer} from './Redux/store';
+import {throttle} from 'lodash';
 
+const persistedState = loadState()
+const store = createStore(
+    rootReducer,
+    persistedState
+)
+store.subscribe(throttle(() => {
+    saveState({
+        settings: store.getState().settings,
+        edition: store.getState().edition
+    });
+}, 1000));
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
       <Provider store={store}>

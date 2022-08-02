@@ -2,7 +2,7 @@ import {combineReducers, legacy_createStore} from 'redux';
 import {EditReducer} from './editReducer';
 import {SettingReducer} from './SettingReducer';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     settings: SettingReducer,
     edition: EditReducer
 })
