@@ -6,9 +6,7 @@ import {AppRootStateType} from './Redux/store';
 import {setCurrentAC, setMaxAC, setMinAC} from './Redux/SettingReducer';
 
 function App() {
-    // const min = Number(localStorage.getItem('min'))
-    // const max = Number(localStorage.getItem('max'))
-    // const current = Number(localStorage.getItem('current'))
+
 
     const dispatch = useDispatch()
     const minValue = useSelector<AppRootStateType, number>(state => state.settings.min)
@@ -18,12 +16,7 @@ function App() {
     let disableReset = true
     let disableIncr = false
     let error = ''
-    //
-    // useEffect(()=>{
-    //     localStorage.setItem('min', JSON.stringify(minValue))
-    //     localStorage.setItem('max', JSON.stringify(maxValue))
-    //     localStorage.setItem('current', JSON.stringify(value))
-    // },[minValue, maxValue, value])
+
 
     if(minValue >= maxValue || value % 1 !== 0 || value < 0){
         disableIncr = true
