@@ -1,24 +1,29 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {MyCounter} from './MyCounter/MyCounter';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType} from './Redux/store';
+import {setCurrentAC, setMaxAC, setMinAC} from './Redux/SettingReducer';
 
 function App() {
-    const min = Number(localStorage.getItem('min'))
-    const max = Number(localStorage.getItem('max'))
-    const current = Number(localStorage.getItem('current'))
+    // const min = Number(localStorage.getItem('min'))
+    // const max = Number(localStorage.getItem('max'))
+    // const current = Number(localStorage.getItem('current'))
 
-    const [minValue, setMinValue] = useState(min)
-    const [maxValue, setMaxValue] = useState(max)
-    const [value, setValue] = useState(current)
+    const dispatch = useDispatch()
+    const minValue = useSelector<AppRootStateType, number>(state => state.settings.min)
+    const maxValue = useSelector<AppRootStateType, number>(state => state.settings.max)
+    let value = useSelector<AppRootStateType, number>(state => state.settings.currentValue)
+
     let disableReset = true
     let disableIncr = false
     let error = ''
-
-    useEffect(()=>{
-        localStorage.setItem('min', JSON.stringify(minValue))
-        localStorage.setItem('max', JSON.stringify(maxValue))
-        localStorage.setItem('current', JSON.stringify(value))
-    },[minValue, maxValue, value])
+    //
+    // useEffect(()=>{
+    //     localStorage.setItem('min', JSON.stringify(minValue))
+    //     localStorage.setItem('max', JSON.stringify(maxValue))
+    //     localStorage.setItem('current', JSON.stringify(value))
+    // },[minValue, maxValue, value])
 
     if(minValue >= maxValue || value % 1 !== 0 || value < 0){
         disableIncr = true
@@ -39,25 +44,25 @@ function App() {
     }
 
     const settingMINimalValueCallBack = (val: number) => {
-            setMinValue(val)
-            setValue(val)
-        if(val > maxValue || val < -1) {
-            setMinValue(minValue)
+            dispatch(setMinAC(val))
+            dispatch(setCurrentAC(val))
+        if(val > maxValue || val < 0) {
+            dispatch(setMinAC(minValue))
         }
     }
     const settingMAXimalValueCallBack = (val: number) => {
-        setMaxValue(val)
+        dispatch(setMaxAC(val))
         if(val < minValue) {
-            setMaxValue(maxValue)
+            dispatch(setMaxAC(maxValue))
         }
     }
     const onIncrementClick = () => {
-        setValue(value + 1)
+        dispatch(setCurrentAC(value += 1))
     }
     const onReset = () => {
-        setMinValue(minValue)
-        setMaxValue(maxValue)
-        setValue(minValue)
+        dispatch(setMinAC(minValue))
+        dispatch(setMaxAC(maxValue))
+        dispatch(setCurrentAC(minValue))
     }
 
     return (
@@ -72,17 +77,6 @@ function App() {
                        maxValue={maxValue}
                        minValue={minValue}
                        error={error}/>
-            {/*<MainFrame*/}
-            {/*    error={error}*/}
-            {/*    minValue={minValue}*/}
-            {/*    maxValue={maxValue}*/}
-            {/*    settingMINimalValueCallBack={settingMINimalValueCallBack}*/}
-            {/*    settingMAXimalValueCallBack={settingMAXimalValueCallBack}*/}
-            {/*    activateReset={onReset}*/}
-            {/*    callBackIncr={onIncrementClick}*/}
-            {/*    disableReset={disableReset}*/}
-            {/*    disableIncr={disableIncr}*/}
-            {/*    value={value}/>*/}
         </div>
     );
 }

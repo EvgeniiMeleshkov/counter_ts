@@ -1,8 +1,11 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import s from '../components/MainFrame/MainFrame.module.css';
 import CountingLabel from '../components/CountingLabel/CountingLabel';
 import Button from '../components/Button/Button';
 import {Input} from '../components/Input/Input';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType} from '../Redux/store';
+import {editAC} from '../Redux/editReducer';
 
 type MyCounterPropsType = {
     activateReset: () => void
@@ -29,7 +32,8 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                                                             error
                                                         }) => {
 
-    const [edit, setEdit] = useState(true)
+    const edit = useSelector<AppRootStateType, boolean>(state => state.edition.edit)
+    const dispatch = useDispatch()
 
     const minCallBack = (e: ChangeEvent<HTMLInputElement>) => {
         settingMINimalValueCallBack(Number(e.currentTarget.value))
@@ -40,7 +44,7 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
     const gotItOnClickHandler = () => {
         settingMINimalValueCallBack(minValue)
         settingMAXimalValueCallBack(maxValue)
-        setEdit(false)
+        dispatch(editAC(false))
     }
     return (
         <div>
@@ -74,7 +78,7 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                                 <Button onClick={callBackIncr} disabled={disableIncr}>Inc</Button>
 
                                 <Button red={!!error} onClick={activateReset} disabled={disableReset}>Reset</Button>
-                                <Button onClick={() => setEdit(true)}>Settings</Button>
+                                <Button onClick={() => dispatch(editAC(true))}>Settings</Button>
                             </div>
                         }
                     </div>
