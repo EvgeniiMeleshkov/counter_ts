@@ -50,7 +50,6 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
         <div>
             <div className="App-header">
                 <div className={s.main}>
-
                     <div className={s.labelDiv}>
                         {edit
                             ? <div className={s.settings}>
@@ -70,7 +69,6 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
                             </div>
                         }
                     </div>
-
                     <div className={s.buttonsDiv}>
                         {edit
                             ? <Button onClick={gotItOnClickHandler}>Got it!</Button>
@@ -79,8 +77,7 @@ export const MyCounter: React.FC<MyCounterPropsType> = ({
 
                                 <Button red={!!error} onClick={activateReset} disabled={disableReset}>Reset</Button>
                                 <Button onClick={() => dispatch(editAC(true))}>Settings</Button>
-                            </div>
-                        }
+                            </div>}
                     </div>
 
                 </div>
